@@ -3,7 +3,7 @@ import Hero from "../Hero";
 import BistroSection from "./BistroSection";
 import Foodcard from "./Foodcard";
 import FromOurMenu from "./FromOurMenu";
-import Popularmenu from "./Popularmenu/Popularmenu";
+// import Popularmenu from "./Popularmenu/Popularmenu";
 import Reviews from "./Reviews";
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
             <Hero></Hero>
             <Catageroy></Catageroy>
             <BistroSection></BistroSection>
-            <Popularmenu></Popularmenu>
+            {/* <Popularmenu></Popularmenu> */}
             <Foodcard></Foodcard>
             <FromOurMenu></FromOurMenu>
             <Reviews></Reviews>

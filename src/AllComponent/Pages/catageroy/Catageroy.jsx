@@ -1,13 +1,5 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-
-import { Pagination } from 'swiper/modules';
-
+import React from 'react';
+import { motion } from 'framer-motion';
 import catagorey1 from "../../../assets/assets/home/slide1.jpg";
 import catagorey2 from "../../../assets/assets/home/slide2.jpg";
 import catagorey3 from "../../../assets/assets/home/slide3.jpg";
@@ -16,49 +8,43 @@ import catagorey5 from "../../../assets/assets/home/slide5.jpg";
 import SectionTittle from '../../SectionTittle/SectionTittle';
 
 const Category = () => {
+    const images = [catagorey1, catagorey2, catagorey3, catagorey4, catagorey5, catagorey1, catagorey2, catagorey3];
+
     return (
         <section>
             <SectionTittle
-            SubHading={"order online "}
-            heading={"from 11.00am to 10.00pm"}
-            >
-               
-            </SectionTittle>
-            <div className="my-8">
-            <Swiper
-                slidesPerView={1}
-                spaceBetween={10}
-                pagination={{
-                    clickable: true,
-                }}
-                breakpoints={{
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                    },
-                    768: {
-                        slidesPerView: 4,
-                        spaceBetween: 40,
-                    },
-                    1024: {
-                        slidesPerView: 5,
-                        spaceBetween: 50,
-                    },
-                }}
-                modules={[Pagination]}
-                className="mySwiper"
-            >
-                <SwiperSlide><img src={catagorey1} alt="" srcset="" /></SwiperSlide>
+                SubHading={"order online "}
+                heading={"from 11.00am to 10.00pm"}
+            />
 
-                <SwiperSlide><img src={catagorey2} alt="" srcset="" /></SwiperSlide>
-                <SwiperSlide><img src={catagorey3} alt="" srcset="" /></SwiperSlide>
-                <SwiperSlide><img src={catagorey4} alt="" srcset="" /></SwiperSlide>
-                <SwiperSlide><img src={catagorey5} alt="" srcset="" /></SwiperSlide>
-                <SwiperSlide><img src={catagorey3} alt="" srcset="" /></SwiperSlide>
-                <SwiperSlide><img src={catagorey2} alt="" srcset="" /></SwiperSlide>
-                <SwiperSlide><img src={catagorey1} alt="" srcset="" /></SwiperSlide>
-            </Swiper>
-        </div>
+            <div className="my-8 overflow-hidden whitespace-nowrap bg-gray-100 py-4">
+                <motion.div
+                    className="flex gap-10"
+                    animate={{
+                        x: [0, -1000], // এখানে আপনার কন্টেন্ট অনুযায়ী ভ্যালু সেট করুন
+                    }}
+                    transition={{
+                        x: {
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            duration: 20, // স্পিড কমানো বা বাড়ানোর জন্য এটি পরিবর্তন করুন
+                            ease: "linear",
+                        },
+                    }}
+                    style={{ width: "fit-content" }}
+                >
+                    {/* একই ইমেজ দুইবার রেন্ডার করা হয়েছে যাতে লুপটি স্মুথ হয় */}
+                    {[...images, ...images].map((img, index) => (
+                        <div key={index} className="w-64 h-80 flex-shrink-0">
+                            <img 
+                                src={img} 
+                                alt={`category-${index}`} 
+                                className="w-full h-full object-cover rounded-lg shadow-md"
+                            />
+                        </div>
+                    ))}
+                </motion.div>
+            </div>
         </section>
     );
 };

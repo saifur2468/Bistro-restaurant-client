@@ -14,7 +14,9 @@ const Menucategory = ({items,title,img}) => {
         ))}
       </div>
     <Link to='/orderFood'>
-    <button className='mx-auto border-2 rounded-xl text-2xl font-serif w-[350px] h-[48px] mb-10 bg-slate-300 text-cyan-500'>order Now </button>
+    <button className="mx-auto block bg-neutral-800 text-black border-b-4 border-orange-500 rounded-xl text-xl font-serif w-[320px] h-[52px] mb-10 hover:bg-neutral-700 hover:border-orange-400 transition-all active:translate-y-1">
+    Order Now
+</button>
      </Link>
         </div>
     );
