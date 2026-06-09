@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        path: 'dashboard', // মেইন পাথ ছোট হাতের রাখাই ভালো
+        path: 'dashboard', 
         element: <Dashboard></Dashboard>,
         children: [
             // --- Normal User Routes ---
@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
                 element: <UserHome></UserHome>
             },
             {
-                path: 'cart', // ভুল সংশোধন: শুধু 'cart' হবে, কোনো স্ল্যাশ হবে না
+                path: 'cart', 
                 element: <Cart></Cart>
             },
             {
