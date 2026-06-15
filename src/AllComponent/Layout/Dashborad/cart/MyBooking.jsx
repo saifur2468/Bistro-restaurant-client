@@ -10,10 +10,10 @@ const MyBooking = () => {
     const axiosSecure = useAxiosSecure();
 
     
-    const { data: bookings = [], refetch, isLoading } = useQuery({
-        queryKey: ['bookings', user?.email],
+    const { data: Bookings = [], refetch, isLoading } = useQuery({
+        queryKey: ['Bookings', user?.email],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/bookings?email=${user?.email}`);
+            const res = await axiosSecure.get(`/Bookings?email=${user?.email}`);
             return res.data;
         }
     });
@@ -52,7 +52,7 @@ const MyBooking = () => {
 
             <div className="max-w-6xl mx-auto bg-white p-8 shadow-xl rounded-lg">
                 <div className="flex justify-between items-center mb-8">
-                    <h3 className="text-3xl font-bold uppercase">Total Bookings: {bookings.length}</h3>
+                    <h3 className="text-3xl font-bold uppercase">Total Bookings: {Bookings.length}</h3>
                 </div>
 
                 <div className="overflow-x-auto rounded-t-2xl border">
@@ -70,23 +70,23 @@ const MyBooking = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {bookings.map((booking, index) => (
-                                <tr key={booking._id} className="border-b hover:bg-gray-50">
+                            {Bookings.map((Booking, index) => (
+                                <tr key={Booking._id} className="border-b hover:bg-gray-50">
                                     <td className="font-bold">{index + 1}</td>
-                                    <td className="font-semibold">{booking.guest || "1 Person"}</td>
+                                    <td className="font-semibold">{Booking.guest || "1 Person"}</td>
                                     <td>Food Order/Table</td>
-                                    <td className="text-gray-600">{booking.date}</td>
-                                    <td className="text-gray-600">{booking.time}</td>
+                                    <td className="text-gray-600">{Booking.date}</td>
+                                    <td className="text-gray-600">{Booking.time}</td>
                                     <td>
                                         <span className={`badge border-none p-3 text-white ${
-                                            booking.status === 'pending' ? 'bg-orange-400' : 'bg-green-500'
+                                            Booking.status === 'pending' ? 'bg-orange-400' : 'bg-green-500'
                                         }`}>
-                                            {booking.status}
+                                            {Booking.status}
                                         </span>
                                     </td>
                                     <td>
                                         <button 
-                                            onClick={() => handleDelete(booking._id)}
+                                            onClick={() => handleDelete(Booking._id)}
                                             className="btn btn-ghost bg-red-600 text-white hover:bg-red-800 btn-md"
                                         >
                                             <FaTrashAlt />
@@ -96,7 +96,7 @@ const MyBooking = () => {
                             ))}
                         </tbody>
                     </table>
-                    {bookings.length === 0 && (
+                    {Bookings.length === 0 && (
                         <p className="text-center py-10 text-gray-500 font-serif text-xl">You have no bookings yet!</p>
                     )}
                 </div>
