@@ -17,7 +17,7 @@ import '@smastrom/react-rating/style.css'
 const Reviews = () => {
     const [reviews, setreviews] = useState([]);
     useEffect(() => {
-        fetch('https://restaurantserver.vercel.app/reviews')
+        fetch('http://localhost:5000/reviews')
             .then(res => res.json())
             .then(data => setreviews(data))
     }, [])

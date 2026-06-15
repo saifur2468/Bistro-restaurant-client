@@ -30,7 +30,7 @@ const AddReview = () => {
         };
 
         try {
-            // আপনার ব্যাকএন্ডের app.post('/reviews') এন্ডপয়েন্টে ডাটা পাঠানো হচ্ছে
+            
             const res = await axiosSecure.post('/reviews', reviewInfo);
             if (res.data.insertedId) {
                 Swal.fire({
