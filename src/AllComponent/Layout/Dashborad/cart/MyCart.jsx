@@ -8,7 +8,7 @@ const MyCart = () => {
     const [cart, refetch] = useCart();
     const axiosSecure = useAxiosSecure();
 
-    // মোট দাম হিসাব করার জন্য
+   
     const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
     const handleDelete = (id) => {
@@ -25,7 +25,7 @@ const MyCart = () => {
                 axiosSecure.delete(`/carts/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
-                            refetch(); // ডাটা ডিলিট হওয়ার পর টেবিল আপডেট করবে
+                            refetch(); 
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your item has been removed from cart.",
