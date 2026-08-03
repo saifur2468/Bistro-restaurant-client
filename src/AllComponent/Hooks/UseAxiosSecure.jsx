@@ -2,7 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const AxiosSecure = axios.create({
-   baseURL: 'http://localhost:5000'
+   baseURL: 'https://restuarent-webserver.vercel.app'
 })
 const UseAxiosSecure = () => {
    // const navigate = useNavigate();

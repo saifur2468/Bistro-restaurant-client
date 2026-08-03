@@ -8,7 +8,6 @@ const UserHome = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
-    // ব্যাকেন্ডের /user-stats/:email এন্ডপয়েন্ট থেকে ডেটা ফেচ করা
     const { data: stats = {} } = useQuery({
         queryKey: ['user-stats', user?.email],
         queryFn: async () => {
