@@ -3,7 +3,8 @@
 A full-stack **Restaurant Management & Food Ordering Platform** where users can browse food items, add to cart, make payments, and manage bookings. Admins can control the entire system including users, menu, and reservations.
 
 # Live Link : https://bistro-boss-17795.web.app/
-
+# Admin Email : admin@bistroboss.com
+# Admin Pass : 123456
 ## 🚀 Live Features
 
 ### 👤 User Features
