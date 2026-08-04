@@ -21,7 +21,7 @@ const Dashboard = () => {
     const { user } = useAuth();
 
   
-    const isAdmin = user?.email === 'mdislamshakib218@gmail.com';
+    const isAdmin = user?.email === 'admin@bistroboss.com';
 
     return (
         <div className="flex min-h-screen">
