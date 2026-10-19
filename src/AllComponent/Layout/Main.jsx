@@ -6,13 +6,11 @@ import Footer from './SharedRoute/Footer';
 const Main = () => {
     const location = useLocation();
     console.log(location);
-    const noHeaderFooter = location.pathname.includes('login') ||location.pathname.includes('signup')
-   
     return (
         <div>
-            { noHeaderFooter || <Navbar></Navbar>}
-           <Outlet></Outlet>
-           { noHeaderFooter || <Footer></Footer> }
+            <Navbar />
+            <Outlet />
+            <Footer />
         </div>
     );
 };

@@ -1,6 +1,5 @@
 import {
     createBrowserRouter,
-
 } from 'react-router-dom';
 import Main from '../Main';
 import Home from '../../Pages/Home/Home';
@@ -10,11 +9,7 @@ import Login from '../../Pages/Login/Login';
 import SignUP from '../../Pages/Login/SignUP';
 import Contact from '../../Pages/Home/Contact/Contact';
 import PrivetRouter from './PrivetRoute/PrivetRouter';
-import Dashborad from '../Dashborad/Dashborad';
-import Cart from '../Dashborad/cart/Cart';
-// import AllUser from '../Dashborad/AllUser/AllUser';
 import Error from '../../Pages/Error/Error';
-// import Additem from '../Dashborad/Additem/Additem';
 import AdminRoute from './AdminRoute';
 import Dashboard from '../Dashborad/Dashborad';
 import UserHome from '../Dashborad/UserHome';
@@ -22,14 +17,13 @@ import Reservation from '../Dashborad/cart/Reservation';
 import Payment from '../Dashborad/cart/Payment';
 import PaymentHistory from '../Dashborad/cart/PaymentHistory';
 import MyCart from '../Dashborad/cart/MyCart';
+import Cart from '../Dashborad/cart/Cart';
 import AddReview from '../Dashborad/cart/AddReview';
 import MyBooking from '../Dashborad/cart/MyBooking';
 import AllUser from './PrivetRoute/AllUser';
 import Additem from './PrivetRoute/AddItem';
 import AdminHome from './PrivetRoute/AdminHome';
 import ManageBooking from './ManageBooking';
-// import AllUser from '../../Layout/Router/PrivetRoute/AllUser';
-
 
 export const router = createBrowserRouter([
     {
@@ -46,77 +40,65 @@ export const router = createBrowserRouter([
                 path: 'Contact',
                 element: <PrivetRouter><Contact></Contact></PrivetRouter>
             },
-        ]
-    },
-    {
-        path: 'dashboard', 
-        element: <Dashboard></Dashboard>,
-        children: [
-            // --- Normal User Routes ---
+            
             {
-                path: 'userHome',
-                element: <UserHome></UserHome>
-            },
-            {
-                path: 'cart', 
-                element: <Cart></Cart>
-            },
-            {
-                path: 'Reservation',
-                element: <Reservation></Reservation>
-            },
-            {
-                path: "Payment",
-                element: <Payment></Payment>,
-            },
-            {
-                path: "PaymentHistory",
-                element: <PaymentHistory></PaymentHistory>,
-            },
-            {
-                path: "MyCart",
-                element: <MyCart></MyCart>,
-            },
-            {
-                path: "addReview",
-                element: <AddReview></AddReview>
-            },
-            {
-                path: "MyBooking",
-                element: <MyBooking></MyBooking>
-            },
+                path: 'dashboard', 
+                element: <PrivetRouter>
+                    <Dashboard></Dashboard>
+                </PrivetRouter>,
+                children: [
+                    // --- Normal User Routes ---
+                    {
+                        path: 'userHome',
+                        element: <UserHome></UserHome>
+                    },
+                    {
+                        path: 'cart', 
+                        element: <Cart></Cart>
+                    },
+                    {
+                        path: 'Reservation',
+                        element: <Reservation></Reservation>
+                    },
+                    {
+                        path: "Payment",
+                        element: <Payment></Payment>,
+                    },
+                    {
+                        path: "PaymentHistory",
+                        element: <PaymentHistory></PaymentHistory>,
+                    },
+                    {
+                        path: "MyCart",
+                        element: <MyCart></MyCart>,
+                    },
+                    {
+                        path: "addReview",
+                        element: <AddReview></AddReview>
+                    },
+                    {
+                        path: "MyBooking",
+                        element: <MyBooking></MyBooking>
+                    },
 
-            // --- Admin Routes ---
-            // {
-            //     path: 'additem',
-            //     element: <AdminRoute><Additem /></AdminRoute>
-            // },
-            // {
-            //     path: "AllUser",
-            //     element: <AdminRoute>
-            //         <AllUser></AllUser>
-            //     </AdminRoute>
-            // }
-
-            {
-                path:"AllUser",
-                element:
-                    <AllUser></AllUser>
-                
-            },
-            {
-                path:"Additem",
-                element:
-                  <Additem></Additem>
-                
-            },
-            {
-                path:"AdminHome",
-                element:<AdminHome></AdminHome>
-            },
-            {
-                path:"ManageBooking",
-                element:<ManageBooking></ManageBooking>
+                    // --- Admin Routes ---
+                    {
+                        path: "AllUser",
+                        element: <AllUser></AllUser>
+                    },
+                    {
+                        path: "Additem",
+                        element: <Additem></Additem>
+                    },
+                    {
+                        path: "AdminHome",
+                        element: <AdminHome></AdminHome>
+                    },
+                    {
+                        path: "ManageBooking",
+                        element: <ManageBooking></ManageBooking>
+                    }
+                ]
             }
         ]
     }

@@ -1,68 +1,102 @@
 import React from 'react';
+import { FaTwitter, FaInstagram, FaFacebookF, FaPinterestP, FaVimeoV } from "react-icons/fa";
 
 const Footer = () => {
-    return (
-        <div>
-            <footer className="footer bg-neutral text-neutral-content p-10">
-  <aside>
-    <svg
-      width="50"
-      height="50"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      fillRule="evenodd"
-      clipRule="evenodd"
-      className="fill-current">
-      <path
-        d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
-    </svg>
-    <p>
-       Bistro Boss.
-      <br />
-      Providing reliable tech since 1992
-    </p>
-  </aside>
-  <nav>
-    <h6 className="footer-title">Social</h6>
-    <div className="grid grid-flow-col gap-4">
-      <a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="fill-current">
-          <path
-            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-        </svg>
-      </a>
-      <a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="fill-current">
-          <path
-            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-        </svg>
-      </a>
-      <a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="fill-current">
-          <path
-            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-        </svg>
-      </a>
-    </div>
-  </nav>
-</footer>
+  // Follow me gallery images
+  const footerImages = [
+    "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=200&auto=format&fit=crop",
+  ];
+
+  return (
+    <footer className="bg-[#1c1c1c] text-neutral-400 font-sans pt-16 pb-8 px-4 md:px-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left items-start">
+        
+        {/* ===== Column 1: Twitter Feed ===== */}
+        <div className="flex flex-col items-center md:items-start">
+          <h3 className="text-white text-xs font-semibold uppercase tracking-[0.25em] mb-6">
+            Twitter Feed
+          </h3>
+          <p className="text-xs font-light leading-relaxed max-w-xs">
+            For all the latest news and updates, follow us on Twitter:{" "}
+            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-white hover:underline">
+              @QodeInteractive.com
+            </a>
+          </p>
         </div>
-    );
+
+        {/* ===== Column 2: Logo, Info & Social Icons ===== */}
+        <div className="flex flex-col items-center text-center">
+          {/* Logo / Signature Placeholder */}
+          <div className="mb-4">
+            <span className="text-white font-serif text-2xl italic tracking-wider font-bold border-b border-neutral-600 pb-1 px-4">
+              Bistro Boss
+            </span>
+          </div>
+
+          <p className="text-xs font-light leading-relaxed max-w-sm mb-4">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.
+          </p>
+
+          <p className="text-xs text-white font-medium mb-1">+387648592568</p>
+          <p className="text-xs text-white font-medium mb-1">savory@qodeinteractive.com</p>
+          <p className="text-xs text-neutral-400 mb-6">Eighth Avenue 487, New York</p>
+
+          {/* Social Icons */}
+          <div className="flex items-center gap-5 text-neutral-400">
+            <a href="#vimeo" className="hover:text-white transition-colors text-sm">
+              <FaVimeoV />
+            </a>
+            <a href="#instagram" className="hover:text-white transition-colors text-sm">
+              <FaInstagram />
+            </a>
+            <a href="#twitter" className="hover:text-white transition-colors text-sm">
+              <FaTwitter />
+            </a>
+            <a href="#pinterest" className="hover:text-white transition-colors text-sm">
+              <FaPinterestP />
+            </a>
+            <a href="#facebook" className="hover:text-white transition-colors text-sm">
+              <FaFacebookF />
+            </a>
+          </div>
+        </div>
+
+        {/* ===== Column 3: Follow Me (Image Grid) ===== */}
+        <div className="flex flex-col items-center md:items-end">
+          <div className="w-full max-w-xs">
+            <h3 className="text-white text-xs font-semibold uppercase tracking-[0.25em] mb-6 text-center md:text-left">
+              Follow Me
+            </h3>
+            {/* 3x2 Image Grid */}
+            <div className="grid grid-cols-3 gap-2">
+              {footerImages.map((img, index) => (
+                <div key={index} className="overflow-hidden rounded group">
+                  <img
+                    src={img}
+                    alt={`Food gallery ${index + 1}`}
+                    className="w-full h-20 object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* ===== Bottom Copyright ===== */}
+      <div className="max-w-7xl mx-auto border-t border-neutral-800 mt-16 pt-6 text-center">
+        <p className="text-[11px] font-light text-neutral-500 tracking-wider">
+          © 2026 Qode Interactive, All Rights Reserved
+        </p>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

@@ -7,40 +7,57 @@ import catagorey4 from "../../../assets/assets/home/slide4.jpg";
 import catagorey5 from "../../../assets/assets/home/slide5.jpg";
 import SectionTittle from '../../SectionTittle/SectionTittle';
 
-const Category = () => {
-    const images = [catagorey1, catagorey2, catagorey3, catagorey4, catagorey5, catagorey1, catagorey2, catagorey3];
+const categories = [
+    { name: "Salads", img: catagorey1 },
+    { name: "Soups", img: catagorey2 },
+    { name: "Pizzas", img: catagorey3 },
+    { name: "Desserts", img: catagorey4 },
+    { name: "Drinks", img: catagorey5 },
+    { name: "Burgers", img: catagorey1 },
+    { name: "Pasta", img: catagorey2 },
+    { name: "BBQ Grill", img: catagorey3 },
+];
 
+const Category = () => {
     return (
-        <section>
+        <section className="py-10">
             <SectionTittle
-                SubHading={"order online "}
-                heading={"from 11.00am to 10.00pm"}
+                SubHading={"From 11:00am to 10:00pm"}
+                heading={"Order Online"}
             />
 
-            <div className="my-8 overflow-hidden whitespace-nowrap bg-gray-100 py-4">
+            <div className="my-8 overflow-hidden whitespace-nowrap bg-neutral-50 py-6">
                 <motion.div
-                    className="flex gap-10"
+                    className="flex gap-6"
                     animate={{
-                        x: [0, -1000], // এখানে আপনার কন্টেন্ট অনুযায়ী ভ্যালু সেট করুন
+                        x: [0, -1200], 
                     }}
                     transition={{
                         x: {
                             repeat: Infinity,
                             repeatType: "loop",
-                            duration: 20, // স্পিড কমানো বা বাড়ানোর জন্য এটি পরিবর্তন করুন
+                            duration: 25, 
                             ease: "linear",
                         },
                     }}
                     style={{ width: "fit-content" }}
                 >
-                    {/* একই ইমেজ দুইবার রেন্ডার করা হয়েছে যাতে লুপটি স্মুথ হয় */}
-                    {[...images, ...images].map((img, index) => (
-                        <div key={index} className="w-64 h-80 flex-shrink-0">
+                    {[...categories, ...categories].map((item, index) => (
+                        <div 
+                            key={index} 
+                            className="w-64 h-80 flex-shrink-0 relative rounded-xl overflow-hidden shadow-lg group cursor-pointer"
+                        >
                             <img 
-                                src={img} 
-                                alt={`category-${index}`} 
-                                className="w-full h-full object-cover rounded-lg shadow-md"
+                                src={item.img} 
+                                alt={item.name} 
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                             />
+                            {/* Dark Gradient Overlay for text visibility */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-6">
+                                <h3 className="text-white text-xl font-bold uppercase tracking-widest font-serif drop-shadow-md">
+                                    {item.name}
+                                </h3>
+                            </div>
                         </div>
                     ))}
                 </motion.div>

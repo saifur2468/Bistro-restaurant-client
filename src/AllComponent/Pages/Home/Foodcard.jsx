@@ -1,73 +1,97 @@
 import React from "react";
-import SectionTittle from "../../SectionTittle/SectionTittle";
-import card1 from "../../../assets/assets/home/slide3.jpg";
-import card2 from "../../../assets/assets/home/slide4.jpg";
-import card3 from "../../../assets/assets/home/slide5.jpg";
 
-const Foodcard = () => {
-  const foods = [
-    {
-      id: 1,
-      image: card1,
-      title: "Caeser Salad",
-      description:
-        "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
-    },
-    {
-      id: 2,
-      image: card2,
-      title: "Caeser Salad",
-      description:
-        "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
-    },
-    {
-      id: 3,
-      image: card3,
-      title: "Caeser Salad",
-      description:
-        "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
-    },
-  ];
+const recipes = [
+  {
+    id: 1,
+    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=600&auto=format&fit=crop",
+    date: "APRIL 11, 2016",
+    category: "HEALTHY",
+    title: "ITALIAN FAMOUS PASTA WITH MEAT AND CHEESE",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam perspiciatis unde omnis....",
+    comments: "1 COMMENT",
+  },
+  {
+    id: 2,
+    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop",
+    date: "APRIL 11, 2016",
+    category: "RECIPES",
+    title: "CHOCOLATE TRUFFLE CAKE WITH HONEY FLAVOR",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam perspiciatis unde omnis....",
+    comments: "2 COMMENTS",
+  },
+  {
+    id: 3,
+    image: "https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=600&auto=format&fit=crop",
+    date: "APRIL 11, 2016",
+    category: "RECIPES",
+    title: "CHICKEN SOUP WITH SPRING VEGGIES AND PASTA",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam perspiciatis unde omnis....",
+    comments: "1 COMMENT",
+  },
+];
 
+export default function SpecialRecipes() {
   return (
-    <section className="mb-10 px-4 md:px-8 lg:px-10">
-      <SectionTittle
-        heading={"should try"}
-        SubHading={"CHEF RECOMMENDS"}
-      />
+    <section className="bg-white py-16 px-4 md:px-8 font-sans">
+      <div className="max-w-6xl mx-auto">
+        {/* ===== Header Section ===== */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-semibold uppercase tracking-[0.2em] text-neutral-800 mb-4">
+            Special Recipes
+          </h2>
+          <p className="text-xs md:text-sm text-neutral-500 font-light leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedolorm reminusto
+            doelusmod tempor incdition ulla mco laboris nisi ut aliquip ex ea commo
+            condorico consectetur adipiscing elitut aliquip.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {foods.map((food) => (
-          <div
-            key={food.id}
-            className="card bg-base-100 w-full shadow-xl"
-          >
-            <figure className="p-4 md:p-6">
-              <img
-                src={food.image}
-                alt={food.title}
-                className="rounded-xl w-full h-56 md:h-72 object-cover"
-              />
-            </figure>
+        {/* ===== Recipe Cards Grid ===== */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {recipes.map((recipe) => (
+            <article key={recipe.id} className="flex flex-col group cursor-pointer">
+              {/* Image Container with Hover Zoom */}
+              <div className="overflow-hidden mb-5">
+                <img
+                  src={recipe.image}
+                  alt={recipe.title}
+                  className="w-full h-56 md:h-60 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
 
-            <div className="card-body items-center text-center">
-              <h2 className="card-title">{food.title}</h2>
+              {/* Meta info (Date & Category) */}
+              <div className="text-[11px] font-medium tracking-[0.15em] text-neutral-400 uppercase mb-2">
+                <span>{recipe.date}</span>
+                <span className="mx-1.5">/</span>
+                <span className="hover:text-neutral-700 transition-colors">
+                  {recipe.category}
+                </span>
+              </div>
 
-              <p className="text-sm md:text-base">
-                {food.description}
+              {/* Title */}
+              <h3 className="text-base font-semibold uppercase tracking-wide text-neutral-800 leading-snug mb-3 group-hover:text-amber-600 transition-colors">
+                {recipe.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-xs text-neutral-500 font-light leading-relaxed mb-4 line-clamp-3">
+                {recipe.description}
               </p>
 
-              <div className="card-actions mt-4">
-                <button className="btn btn-primary">
-                  Add To Cart
-                </button>
+              {/* Comments & Bottom Border */}
+              <div className="mt-auto">
+                <span className="text-[10px] tracking-[0.15em] text-neutral-400 uppercase font-medium hover:text-neutral-700 transition-colors">
+                  {recipe.comments}
+                </span>
+                <div className="w-8 h-[2px] bg-neutral-800 mt-3 group-hover:w-16 transition-all duration-300"></div>
               </div>
-            </div>
-          </div>
-        ))}
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
-};
-
-export default Foodcard;
+}
