@@ -32,11 +32,10 @@ export const router = createBrowserRouter([
         element: <Main></Main>,
         errorElement: <Error></Error>,
         children: [
-             {
-            index: true,
-            element: <DashboardIndex></DashboardIndex>
-        },
-            { path: "/", element: <Home></Home> },
+            {
+                index: true,
+                element: <Home></Home> // Home পেজকে মূল রুট হিসেবে সেট করা হলো
+            },
             { path: 'menu', element: <Menu></Menu> },
             { path: 'orderFood', element: <OrderFood></OrderFood> },
             { path: 'login', element: <Login></Login> },
@@ -45,13 +44,17 @@ export const router = createBrowserRouter([
                 path: 'Contact',
                 element: <PrivetRouter><Contact></Contact></PrivetRouter>
             },
-            
             {
                 path: 'dashboard', 
                 element: <PrivetRouter>
                     <Dashboard></Dashboard>
                 </PrivetRouter>,
                 children: [
+                    
+                    {
+                        index: true,
+                        element: <DashboardIndex></DashboardIndex>
+                    },
                     // --- Normal User Routes ---
                     {
                         path: 'userHome',
