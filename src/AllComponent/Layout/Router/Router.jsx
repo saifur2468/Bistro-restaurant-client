@@ -24,6 +24,7 @@ import AllUser from './PrivetRoute/AllUser';
 import Additem from './PrivetRoute/AddItem';
 import AdminHome from './PrivetRoute/AdminHome';
 import ManageBooking from './ManageBooking';
+import DashboardIndex from '../../DashboardIndex';
 
 export const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
         element: <Main></Main>,
         errorElement: <Error></Error>,
         children: [
+             {
+            index: true,
+            element: <DashboardIndex></DashboardIndex>
+        },
             { path: "/", element: <Home></Home> },
             { path: 'menu', element: <Menu></Menu> },
             { path: 'orderFood', element: <OrderFood></OrderFood> },
